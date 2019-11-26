@@ -28,7 +28,7 @@
 %>
 <h1>Hotel WebApp</h1>
 <% if (errorMessage != null){%>
-<h3> style ="color: red"><%= errorMessage %></h3>
+<h3 style ="color: red"><%= errorMessage %></h3>
 <%}%>
 <%if(session.getAttribute("user")== null){%>
 <form method ="post">

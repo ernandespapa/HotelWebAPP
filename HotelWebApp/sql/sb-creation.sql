@@ -30,7 +30,7 @@ CREATE TABLE host_periods(
         (START WITH 1, INCREMENT BY 1)
      , client_name varchar (50) not null
      , room varchar (7) not null
-     , begin_period TIMESTAMP not null
-     , end_period TIMESTAMP 
+     , check_in TIMESTAMP not null
+     , check_out TIMESTAMP 
      , price DOUBLE PRECISION
 );
