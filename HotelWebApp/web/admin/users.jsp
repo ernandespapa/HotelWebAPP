@@ -63,6 +63,7 @@
                     <option value="ADMIN">ADMIN</option>
                     <option value="OPERADOR">OPERADOR</option>
                 </select>
+                <br/>
                 Login: <input type="text" name="login"/>
                 Pass: <input type="password" name="pass"/>
                 <input type="submit" name="formNewUser" value="Add"/>
