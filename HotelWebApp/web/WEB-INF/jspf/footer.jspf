@@ -1,0 +1,12 @@
+<%@ page pageEncoding="UTF-8" %>
+<br/>
+<br/>
+<footer style="text-align: center;" class="footer">
+
+  <div>
+      &copy; 2019 - Faculdade de tecnologia de Praia Grande
+  </div>
+    <br/>
+    <small>Desenvolvido por Denis e Ernandes <small>
+
+</footer>

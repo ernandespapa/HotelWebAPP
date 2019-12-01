@@ -25,10 +25,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Check In - HotelWebApp</title>
+        <link rel= "stylesheet" href ="../css/style.css">
     </head>
     <body>
         <%@include file="../WEB-INF/jspf/header.jspf"%>
-        <h1>Check in</h1>
+        <br/>
+        <br/>
+        <div class ="card">
+        <h3>Check in</h3>
         <%if(session.getAttribute("user")== null){%>
         <h2>É preciso estar autenticado para acessar este recurso</h2>
         <%}else{%>
@@ -45,7 +49,7 @@
                 <input type="submit" name="formNewPeriod" value="Registrar CheckIn"/>
             </form>
         </fieldset>
-        <table border="1">
+        <table id="tb">
             <tr>
                 <th>ID</th>
                 <th>Nome do Cliente</th>
@@ -68,7 +72,7 @@
         </table>
         
         <%}%>
-       
-        
+        </div>
+         <%@include file="../WEB-INF/jspf/footer.jspf"%> 
     </body>
 </html>

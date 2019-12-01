@@ -47,10 +47,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> check_in - HotelWebApp</title>
+        <link rel= "stylesheet" href ="../css/style.css">
     </head>
     <body>
         <%@include file="../WEB-INF/jspf/header.jspf"%>
-        <h1>Regitrar Saída</h1>
+        <br/>
+        <br/>
+        <div class ="card">
+        <h3>Regitrar Saída</h3>
          <% if (error != null){%>
         <h3><%=error%></h3>
         <%}%>
@@ -72,6 +76,7 @@
         
         <%}%>
        
-        
+        </div>
+         <%@include file="../WEB-INF/jspf/footer.jspf"%> 
     </body>
 </html>
