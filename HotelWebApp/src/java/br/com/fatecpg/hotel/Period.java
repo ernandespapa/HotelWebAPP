@@ -53,34 +53,32 @@ public class Period {
        
         }
         
-  /*public static ArrayList<Period> getHistory(String date, String plate) throws Exception{
-      String SQL = "SELECT * FROM PARKING_PERIODS WHERE END_PERIOD IS NOT NULL ORDER BY BEGIN_PERIOD";
-        ArrayList<Period> periods = new ArrayList<>();
-        ArrayList<Object[]> list = DatabaseConnector.getQuery(SQL, new Object[]{});
-       /* ArrayList<Object[]> list = null;
-        if (date == null && plate != null){
-            String SQL = "SELECT * FROM PARKING_PERIODS ";
-            SQL += " WHERE plate = ?";
-            SQL += " ORDER BY BEGIN_PERIOD";
-            list = DatabaseConnector.getQuery(SQL, new Object[]{plate});
+     public static ArrayList<Period> getHistory(String date, String room) throws Exception{
+
+         ArrayList<Object[]> list = null;
+        if (date == null && room != null){
+            String SQL = "SELECT * FROM HOST_PERIODS ";
+            SQL += " WHERE room = ?";
+            SQL += " ORDER BY check_in";
+            list = DatabaseConnector.getQuery(SQL, new Object[]{room});
             
-        }else if (date != null && plate == null){
-            String SQL = "SELECT * FROM PARKING_PERIODS ";
-            SQL += " WHERE VARCHAR(DATE(BEGIN_PERIOD)) = ?";
-            SQL += " ORDER BY BEGIN_PERIOD";
+        }else if (date != null && room == null){
+            String SQL = "SELECT * FROM HOST_PERIODS ";
+            SQL += " WHERE VARCHAR(DATE(check_in)) = ?";
+            SQL += " ORDER BY check_in";
             list = DatabaseConnector.getQuery(SQL, new Object[]{date});      
-         }else if (date != null && plate != null){
-            String SQL = "SELECT * FROM PARKING_PERIODS ";
-            SQL += " WHERE VARCHAR(DATE(BEGIN_PERIOD)) = ? AND plate= ?";
-            SQL += " ORDER BY BEGIN_PERIOD";
-            list = DatabaseConnector.getQuery(SQL, new Object[]{date, plate});   
+         }else if (date != null && room != null){
+            String SQL = "SELECT * FROM HOST_PERIODS ";
+            SQL += " WHERE VARCHAR(DATE(check_in)) = ? AND room= ?";
+            SQL += " ORDER BY check_in";
+            list = DatabaseConnector.getQuery(SQL, new Object[]{date, room});   
         }else{
-             String SQL = "SELECT * FROM PARKING_PERIODS ";
-            SQL += " ORDER BY BEGIN_PERIOD";
+             String SQL = "SELECT * FROM HOST_PERIODS ";
+            SQL += " ORDER BY check_in";
             list = DatabaseConnector.getQuery(SQL, new Object[]{});
         }
 
-       // ArrayList<Period> periods = new ArrayList<>();
+        ArrayList<Period> periods = new ArrayList<>();
        for (int i = 0; i<list.size(); i++) {
             Object row[] = list.get(i);
             Period p = new Period (
@@ -91,11 +89,11 @@ public class Period {
                     , (Date) row[4]
                     , (Double) row[5]);
                    
-                    periods.add(p);
+                     periods.add(p);
         }     
             return periods;
         }
-*/
+
         public static ArrayList<Period> getPeriods() throws Exception{
         String SQL = "SELECT * FROM HOST_PERIODS WHERE CHECK_OUT IS NULL ORDER BY CHECK_in";
         ArrayList<Period> periods = new ArrayList<>();
