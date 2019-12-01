@@ -50,7 +50,7 @@
     <a href ="<%= path%>/home.jsp">HOME</a>
     <a href ="<%= path%>/operation/prices.jsp">PREÇOS</a>
     <a href ="<%= path%>/operation/check_in.jsp">CHECK-IN</a>
-    <a href ="<%= path%>/">HISTÓRICO</a>
+    <a href ="<%= path%>/operation/history.jsp">HISTÓRICO</a>
 <%if (user.getRole().equals("ADMIN")){%>
 ||[<a href="<%=path%>/admin/users.jsp"> USERS</a>]
 </h2>
