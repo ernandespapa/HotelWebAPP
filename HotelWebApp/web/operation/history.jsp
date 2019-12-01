@@ -25,9 +25,53 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Histórico - HotelWebApp</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../WEB-INF/jspf/header.jspf"%>
+        <h1>Histórico</h1>
+        <%if(session.getAttribute("user")== null){%>
+        <h2>É preciso estar autenticado para acessar este recurso</h2>
+        <%}else{%>
+        <% User user = (User) session.getAttribute("user"); %>
+        
+        <% if (error != null){%>
+        <h3><%=error%></h3>
+        <%}%>
+        <fieldset>
+            <legend>Flitro</legend>
+            <form>
+                Nome: <input type="date" name="date"/>
+                Quarto: <input type="text" name="room"/>
+                <input type="submit" name="formFilter" value="Filtrar"/>
+            </form>
+        </fieldset>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Quarto</th>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Preço</th>
+                
+            </tr>
+            <% for (Period p: Period.getHistory(date, room)){%>
+            <tr>
+                <td><%=p.getId()%></td>
+                <td><%=p.getClient_name()%></td>
+                <td><%=p.getRoom()%></td>
+                <td><%=p.getCheck_in()%></td>
+                <td><%=p.getCheck_out()%></td>
+                <td><%=p.getPrice()%></td>
+                
+               
+            </tr>
+            <% }%>
+        </table>
+        
+        <%}%>
+       
+        
     </body>
 </html>
